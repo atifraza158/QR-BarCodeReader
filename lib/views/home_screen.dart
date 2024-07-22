@@ -3,6 +3,7 @@ import 'package:fluttericon/octicons_icons.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:qr_code_app/views/bar_code/create_barcode/create_barcode.dart';
+import 'package:qr_code_app/views/qr_code/scan_qr_code.dart';
 import 'package:qr_code_app/views/utils/app_colors/app_colors.dart';
 import 'package:qr_code_app/views/utils/app_text/app_text.dart';
 
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                   Expanded(
                     child: qrCard(
                       "Create QR Code",
-                      'assets/images/qr_scan.png',
+                      'assets/images/create_qr.png',
                       () {},
                       tileColor: Colors.lightBlue,
                     ),
@@ -83,15 +84,21 @@ class HomeScreen extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => ScanQrCode());
+          },
           child: Icon(Octicons.device_camera),
         ),
       ),
     );
   }
 
-  Widget qrCard(String text, String imageText, VoidCallback onTap,
-      {Color? tileColor}) {
+  Widget qrCard(
+    String text,
+    String imageText,
+    VoidCallback onTap, {
+    Color? tileColor,
+  }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -117,6 +124,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 10),
               AppText(
                 title: text,
+                color: AppColors.white_color,
                 fontWeight: FontWeight.w600,
               ),
             ],

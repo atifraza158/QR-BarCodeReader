@@ -4,7 +4,7 @@ import 'package:fluttericon/linearicons_free_icons.dart';
 import 'package:fluttericon/octicons_icons.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_app/controller/nav_controller.dart';
-import 'package:qr_code_app/views/qr_code/create_qr_code/create_qr_code.dart';
+import 'package:qr_code_app/views/qr_code/all_platforms_qr.dart';
 import 'package:qr_code_app/views/history/history.dart';
 import 'package:qr_code_app/views/home_screen.dart';
 
@@ -85,7 +85,7 @@ class Nav extends StatelessWidget {
     },
     {
       'icon': FontAwesome.qrcode,
-      'screen': CreateQrCode(),
+      'screen': AllPlatformsQR(),
     },
     {
       'icon': LineariconsFree.history,

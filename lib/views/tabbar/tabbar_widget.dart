@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 import 'package:fluttericon/linearicons_free_icons.dart';
 import 'package:fluttericon/octicons_icons.dart';
-import 'package:qr_code_app/views/qr_code/create_qr_code/create_qr_code.dart';
 import 'package:qr_code_app/views/history/history.dart';
 import 'package:qr_code_app/views/home_screen.dart';
+import 'package:qr_code_app/views/qr_code/all_platforms_qr.dart';
 import 'package:qr_code_app/views/utils/app_colors/app_colors.dart';
 import 'package:qr_code_app/views/utils/app_text/app_text.dart';
 
@@ -19,9 +19,36 @@ class TabbarWidget extends StatelessWidget {
         backgroundColor: AppColors.bg_color,
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: AppText(
-            title: "QR Code Reader",
-            size: 16,
+          title: Container(
+            padding: EdgeInsets.symmetric(horizontal: 13, vertical: 8),
+            decoration: BoxDecoration(
+              color: AppColors.primary_color,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AppText(
+                  title: "QR Code Reader",
+                  size: 16,
+                  color: AppColors.white_color,
+                  fontWeight: FontWeight.w600,
+                ),
+                SizedBox(width: 15),
+                Container(
+                  padding: EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: AppColors.white_color,
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    FontAwesome.qrcode,
+                    size: 20,
+                    color: AppColors.primary_color,
+                  ),
+                )
+              ],
+            ),
           ),
           bottom: TabBar(
             indicatorColor: AppColors.primary_color,
@@ -83,7 +110,7 @@ class TabbarWidget extends StatelessWidget {
         ),
         body: TabBarView(children: [
           HomeScreen(),
-          CreateQrCode(),
+          AllPlatformsQR(),
           History(),
         ]),
       ),
